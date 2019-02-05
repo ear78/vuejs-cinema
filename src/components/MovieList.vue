@@ -18,7 +18,14 @@
                 if(!this.genre.length){
                     return true;
                 } else {
-                    let movieGenres = movie.movie.Genre.split(", ")
+                    let movieGenres = movie.movie.Genre.split(", ");
+                    let matched = true;
+                    this.genre.forEach(genre => {
+                        if(movieGenres.indexOf(genre) === -1){
+                            matched = false;
+                        }
+                    })
+                    return matched;
                 }
             }
         },
